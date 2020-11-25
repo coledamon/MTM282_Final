@@ -12,7 +12,6 @@ mdb.once("open", (callback) => {
 
 });
 
-// Define a schema with a passed in javascript object.
 let userSchema = mongoose.Schema({
     username: String,
     password: String,
@@ -23,7 +22,6 @@ let userSchema = mongoose.Schema({
 	answer3: String
 });
 
-// Create a model based on personSchema we defined above.
 let User = mongoose.model("users", userSchema);
 
 exports.index = (req, res) => {
