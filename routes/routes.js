@@ -44,13 +44,13 @@ exports.verifyUser = (req, res) => {
 	});
 }
 exports.signUp = (req, res) => {
-
+res.render('signup')
 }
 exports.createUser = (req, res) => {
-
+res.render()
 }
 exports.profile = (req, res) => {
-
+res.render('profile')
 }
 exports.editProfile = (req, res) => {
 
