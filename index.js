@@ -4,6 +4,29 @@ const bodyParser = require("body-parser");
 const pug = require("pug");
 const path = require("path");
 const routes = require("./routes/routes");
+const bcrypt = require('bcryptjs');
+
+
+passwd = "abd";
+
+hashpasswd = (password, saltRounds = 10) => {
+
+    
+    var salt = bcrypt.genSaltSync(saltRounds);
+    var hash = bcrypt.hashSync(passwd, salt);
+    console.log(hash)
+    return hash
+}
+
+checkpasswd = (password, hash ) => {
+bcrypt.compare(password, hash, function(err, res) {
+console.log(res)
+return res
+});
+}
+
+
+checkpasswd(passwd,hashpasswd(passwd,10))
 
 const app = express();
 
