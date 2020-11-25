@@ -21,3 +21,12 @@ app.use(expressSession({
 	saveUninitialized: true,
 	resave: true
 }));
+
+app.get("/", routes.index);
+app.get("/login", routes.login);
+app.post("/login", urlEncodedParser, routes.verifyUser);
+app.get("/signUp", routes.signUp);
+app.post("/signUp", urlEncodedParser, routes.createUser);
+app.get("/profile", routes.profile);
+app.post("/profile", urlEncodedParser, routes.editProfile);
+
