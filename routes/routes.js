@@ -50,7 +50,10 @@ exports.createUser = (req, res) => {
 res.render()
 }
 exports.profile = (req, res) => {
-res.render('profile')
+res.render('profile', {
+    user: User
+});
+
 }
 exports.editProfile = (req, res) => {
 
