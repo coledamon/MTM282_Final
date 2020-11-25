@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(57, 199, 209);
+    color: rgb(61, 219, 122);
+    font-size: 38px;
+    text-align: center;
+    
+    
+}
+div {
+    text-align:center;
+    list-style-type: none;
+    font-size: 42px;
+    font-style: oblique;
+}
+div:hover{
+    color: rgb(152, 126, 245);
+    transition: all 500ms;
+}
