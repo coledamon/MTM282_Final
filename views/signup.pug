@@ -2,3 +2,10 @@ extends layout
 
 block content
     h1 testing version of signup
+     form(id="form" method="POST", action="/home")
+        p uname: 
+            input(type="text" name="uname")
+        p Password: 
+            input(type="text" name="pass")
+        p   
+            input(type="submit" value="signup")
