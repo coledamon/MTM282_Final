@@ -16,7 +16,8 @@ mdb.once("open", (callback) => {
 
 let userSchema = mongoose.Schema({
     username: String,
-    password: String,
+	password: String,
+	salt: String,
     email: String,
     age: Number,
 	answer1: String,
@@ -43,10 +44,10 @@ exports.login = (req, res) => {
 	res.render("signin", {error});
 }
 exports.verifyUser = (req, res) => {
-	User.find({username: req.body.username}, (err, person) => {
+	User.findOne({username: req.body.username}, (err, person) => {
 		if (err) return console.error(err);
 		if(person) {
-			if(bcrypt.compareSync(person.password, hashPassword(req.body.password))) {
+			if(bcrypt.compareSync(req.body.password, person.password)) {
 				req.session.user = person;
 				res.redirect("/");
 			} else {
@@ -69,27 +70,34 @@ exports.signUp = (req, res) => {
 	res.render("signup", {error});
 }
 exports.createUser = (req, res) => {
-	let newUser = new User({
-		username: req.body.username,
-		password: req.body.password,
-		email: "",
-		age: 0,
-		answer1: req.body.answer1,
-		answer2: req.body.answer2,
-		answer3: req.body.answer3
-	});
+	if(req.body.password === req.body.passwordConf) {
+		let salt = bcrypt.genSaltSync(10);
+		let newUser = new User({
+			username: req.body.username,
+			password: bcrypt.hashSync(req.body.password, salt),
+			salt: salt,
+			email: "",
+			age: 0,
+			answer1: req.body.answer1,
+			answer2: req.body.answer2,
+			answer3: req.body.answer3
+		});
 
-	User.find({username: { '$regex': new RegExp(newUser.username, "i")}}, (err, currentUser) => {
-		if(!currentUser) {
-			newUser.save((err, person) => {
-				if (err) return console.error(err);
-				res.redirect("/");
-			});
-		} else {
-			req.session.error = "A user with this username already exists"
-			res.redirect("/signUp");
-		}
-	})
+		User.findOne({username: { '$regex': new RegExp(newUser.username, "i")}}, (err, currentUser) => {
+			if(!currentUser) {
+				newUser.save((err, person) => {
+					if (err) return console.error(err);
+					res.redirect("/");
+				});
+			} else {
+				req.session.error = "A user with this username already exists"
+				res.redirect("/signUp");
+			}
+		})
+	} else {
+		req.session.error = "Passwords do not match"
+		res.redirect("/signUp");
+	}
 }
 exports.profile = (req, res) => {
 	res.render("profile");
