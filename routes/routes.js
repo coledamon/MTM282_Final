@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
+const bcrypt = require('bcryptjs');
+const { response } = require("express");
 
 mongoose.connect("mongodb://localhost/data", {
     useUnifiedTopology: true,
@@ -29,29 +31,88 @@ exports.index = (req, res) => {
 		res.redirect("/login");
 	} else {
 		//display cookie value
+		res.render("home");
 	}
 }
 exports.login = (req, res) => {
-	res.render("login");
+	let error;
+	if(req.session.error) {
+		error = req.session.error;
+		req.session.error = null;
+	}
+	res.render("signin", {error});
 }
 exports.verifyUser = (req, res) => {
 	User.find({username: req.body.username}, (err, person) => {
-		if(bcrypt.compareSync(person.password, bcrypt.hashSync(req.body.password, salt))) {
-			req.session.user = person;
+		if (err) return console.error(err);
+		if(person) {
+			if(bcrypt.compareSync(person.password, hashPassword(req.body.password))) {
+				req.session.user = person;
+				res.redirect("/");
+			} else {
+				req.session.error = "Wrong username or password";
+				res.redirect("/login");
+			}
 		} else {
-			//wrong username or password
+			req.session.error = "Wrong username or password";
+			res.redirect("/login");
 		}
 	});
+	
 }
 exports.signUp = (req, res) => {
-
+	let error;
+	if(req.session.error) {
+		error = req.session.error;
+		req.session.error = null;
+	}
+	res.render("signup", {error});
 }
 exports.createUser = (req, res) => {
+	let newUser = new User({
+		username: req.body.username,
+		password: req.body.password,
+		email: "",
+		age: 0,
+		answer1: req.body.answer1,
+		answer2: req.body.answer2,
+		answer3: req.body.answer3
+	});
 
+	User.find({username: { '$regex': new RegExp(newUser.username, "i")}}, (err, currentUser) => {
+		if(!currentUser) {
+			newUser.save((err, person) => {
+				if (err) return console.error(err);
+				res.redirect("/");
+			});
+		} else {
+			req.session.error = "A user with this username already exists"
+			res.redirect("/signUp");
+		}
+	})
 }
 exports.profile = (req, res) => {
-
+	res.render("profile");
 }
 exports.editProfile = (req, res) => {
 
 }
+exports.logout = (req, res) => {
+
+}
+
+const hashPassword = (password) => {
+	let saltRounds = 10
+    let salt = bcrypt.genSaltSync(saltRounds);
+    let hash = bcrypt.hashSync(password, salt);
+    return hash
+}
+
+const checkpasswd = (password, hash) => {
+bcrypt.compare(password, hash, function(err, res) {
+console.log(res)
+return res
+});
+}
+
+
