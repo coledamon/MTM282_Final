@@ -2,10 +2,18 @@ extends layout
 
 block content
     h1 testing version of signup
-     form(id="form" method="POST", action="/home")
-        p uname: 
-            input(type="text" name="uname")
+     form(id="form" method="POST", action="/signUp")
+        p Username: 
+            input(type="text" name="username")
         p Password: 
-            input(type="text" name="pass")
+            input(type="text" name="password")
+        p Confirm Password:
+            input(type="text" name="passwordConf")
+        p Question 1:
+            input(type="text" name="answer1")
+        p Question 2:
+            input(type="text" name="answer2")
+        p Question 3:
+            input(type="text" name="answer3")
         p   
-            input(type="submit" value="signup")
+            input(type="submit" value="Sign Up")

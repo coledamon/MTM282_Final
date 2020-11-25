@@ -2,10 +2,10 @@ extends layout
 
 block content
     h1 testing version of signin
-     form(id="form" method="POST", action="/home")
-        p uname: 
-            input(type="text" name="uname")
+     form(id="form" method="POST", action="/login")
+        p Username: 
+            input(type="text" name="username")
         p Password: 
-            input(type="text" name="pass")
+            input(type="text" name="password")
         p   
-            input(type="submit" value="login")
+            input(type="submit" value="Log In")
