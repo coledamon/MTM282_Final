@@ -32,7 +32,9 @@ exports.index = (req, res) => {
 		res.redirect("/login");
 	} else {
 		//display cookie value
-		res.render("home");
+		let lastTime = req.cookies.lastTimeHere != undefined ? req.cookies.lastTimeHere : null;
+		res.cookie("lastTimeHere", new Date(), 2147483647);
+		res.render("home", {lastTime});
 	}
 }
 exports.login = (req, res) => {
@@ -87,6 +89,7 @@ exports.createUser = (req, res) => {
 			if(!currentUser) {
 				newUser.save((err, person) => {
 					if (err) return console.error(err);
+					req.session.user = person;
 					res.redirect("/");
 				});
 			} else {
@@ -100,13 +103,17 @@ exports.createUser = (req, res) => {
 	}
 }
 exports.profile = (req, res) => {
-	res.render("profile");
+	res.render("profile", {user: req.session.user});
+}
+exports.profileEdit = (req, res) => {
+	res.render("editProfile", {user: req.session.user});
 }
 exports.editProfile = (req, res) => {
-
+	
 }
 exports.logout = (req, res) => {
-
+	req.session.user = null;
+	res.redirect("/login");
 }
 
 const hashPassword = (password) => {
