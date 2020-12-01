@@ -132,18 +132,3 @@ exports.logout = (req, res) => {
 	res.redirect("/login");
 }
 
-const hashPassword = (password) => {
-	let saltRounds = 10
-    let salt = bcrypt.genSaltSync(saltRounds);
-    let hash = bcrypt.hashSync(password, salt);
-    return hash
-}
-
-const checkpasswd = (password, hash) => {
-bcrypt.compare(password, hash, function(err, res) {
-console.log(res)
-return res
-});
-}
-
-
