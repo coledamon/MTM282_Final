@@ -28,14 +28,9 @@ let userSchema = mongoose.Schema({
 let User = mongoose.model("users", userSchema);
 
 exports.index = (req, res) => {
-	if(!req.session.user) {
-		res.redirect("/login");
-	} else {
-		//display cookie value
-		let lastTime = req.cookies[`lastTimeHere${req.session.user.username}`] != undefined ? new Date(req.cookies[`lastTimeHere${req.session.user.username}`]).toLocaleTimeString() + " on " + new Date(req.cookies[`lastTimeHere${req.session.user.username}`]).toLocaleDateString() : null;
-		res.cookie(`lastTimeHere${req.session.user.username}`, new Date(), 2147483647);
-		res.render("home", {lastTime});
-	}
+	let lastTime = req.cookies[`lastTimeHere${req.session.user.username}`] != undefined ? new Date(req.cookies[`lastTimeHere${req.session.user.username}`]).toLocaleTimeString() + " on " + new Date(req.cookies[`lastTimeHere${req.session.user.username}`]).toLocaleDateString() : null;
+	res.cookie(`lastTimeHere${req.session.user.username}`, new Date(), 2147483647);
+	res.render("home", {lastTime});
 }
 exports.login = (req, res) => {
 	let error;
