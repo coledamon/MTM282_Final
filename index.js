@@ -32,4 +32,7 @@ app.post("/signUp", urlEncodedParser, routes.createUser);
 app.get("/profile", routes.profile);
 app.get("/profileEdit", routes.profileEdit);
 app.post("/profile", urlEncodedParser, routes.editProfile);
+app.get("/editprofile", routes.editProfile);
+app.post("/editprofile", urlEncodedParser, routes.editProfile);
+
 
