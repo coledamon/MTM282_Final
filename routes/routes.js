@@ -32,8 +32,8 @@ exports.index = (req, res) => {
 		res.redirect("/login");
 	} else {
 		//display cookie value
-		let lastTime = req.cookies.lastTimeHere != undefined ? req.cookies.lastTimeHere : null;
-		res.cookie("lastTimeHere", new Date(), 2147483647);
+		let lastTime = req.cookies[`lastTimeHere${req.session.user.username}`] != undefined ? req.cookies[`lastTimeHere${req.session.user.username}`] : null;
+		res.cookie(`lastTimeHere${req.session.user.username}`, new Date(), 2147483647);
 		res.render("home", {lastTime});
 	}
 }
@@ -85,7 +85,7 @@ exports.createUser = (req, res) => {
 			answer3: req.body.answer3
 		});
 
-		User.findOne({username: { '$regex': new RegExp(newUser.username, "i")}}, (err, currentUser) => {
+		User.findOne({username: { '$regex': new RegExp(`^${newUser.username}$`, "i")}}, (err, currentUser) => {
 			if(!currentUser) {
 				newUser.save((err, person) => {
 					if (err) return console.error(err);
