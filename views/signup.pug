@@ -9,12 +9,20 @@ block content
             input(type="text" name="password")
         p Confirm Password:
             input(type="text" name="passwordConf")
-        p Question 1:
-            input(type="text" name="answer1")
-        p Question 2:
-            input(type="text" name="answer2")
-        p Question 3:
-            input(type="text" name="answer3")
+        p What is the best pet to have?:
+        select(name='answer1')
+            option(value='dog' ) (Dog)
+            option(value='cat' ) (Cat)
+            option(value='other' ) (Other)
+
+        p PC or Console?:
+        select(name='answer2')
+            option(value='PC' ) (PC)
+            option(value='Console' ) (Console)
+        p Are you left or right handed?:
+        select(name='answer3')
+            option(value='left' ) (Left)
+            option(value='right' ) (Right)s
         p #{error}
         p   
             input(type="submit" value="Sign Up")
