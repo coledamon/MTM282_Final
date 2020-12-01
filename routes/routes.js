@@ -103,7 +103,8 @@ exports.profile = (req, res) => {
 	res.render("profile");
 }
 exports.editProfile = (req, res) => {
-
+	res.render("editprofile");
+	user:User
 }
 exports.logout = (req, res) => {
 

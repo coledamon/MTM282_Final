@@ -5,10 +5,14 @@ block content
      form(id="form" method="POST", action="/signUp")
         p Username: 
             input(type="text" name="username")
-        p Password: 
-            input(type="text" name="password")
-        p Confirm Password:
-            input(type="text" name="passwordConf")
+        p Email:
+            input(type="text" name="email")
+        p Age:
+            input(type="text" name="age")
+        //- p Password: 
+        //-     input(type="text" name="password")
+        //- p Confirm Password:
+        //-     input(type="text" name="passwordConf")
         p What is the best pet to have?:
         select(name='answer1')
             option(value='dog' ) Dog
