@@ -4,27 +4,27 @@ block content
     h1 testing version of signup
      form(id="form" method="POST", action="/signUp")
         p Username: 
-            input(type="text" name="username")
+            input(type="text" name="username" value=user.username)
         p Email:
-            input(type="text" name="email")
+            input(type="text" name="email" value=user.email)
         p Age:
-            input(type="text" name="age")
+            input(type="text" name="age" value=user.age)
         //- p Password: 
         //-     input(type="text" name="password")
         //- p Confirm Password:
         //-     input(type="text" name="passwordConf")
         p What is the best pet to have?:
-        select(name='answer1')
+        select(name='answer1' value=user.answer1)
             option(value='dog' ) Dog
             option(value='cat' ) Cat
             option(value='other' ) Other
 
         p PC or Console?:
-        select(name='answer2')
+        select(name='answer2' value=user.answer2)
             option(value='PC' ) PC
             option(value='Console' ) Console
         p Are you left or right handed?:
-        select(name='answer3')
+        select(name='answer3' value=user.answer3)
             option(value='left' ) Left
             option(value='right' ) Right
         p #{error}
