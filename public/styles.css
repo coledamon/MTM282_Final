@@ -1,7 +1,7 @@
 body {
     
     color: rgb(250, 253, 255);
-    font-size: 38px;
+    font-size: 31px;
     text-align: center;
     font-style: italic;
     
@@ -9,6 +9,7 @@ body {
      background-image: url("images/signupbgg.jpg");
      background-repeat: no-repeat;
      background-size: cover;
+     
      
        
     
@@ -24,3 +25,4 @@ div:hover{
     color: rgb(152, 126, 245);
     transition: all 500ms;
 }
+  
