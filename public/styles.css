@@ -1,8 +1,16 @@
 body {
-    background-color: rgb(57, 199, 209);
-    color: rgb(61, 219, 122);
+    
+    color: rgb(250, 253, 255);
     font-size: 38px;
     text-align: center;
+    font-style: italic;
+    
+        
+     background-image: url("images/signupbgg.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     
+       
     
     
 }
