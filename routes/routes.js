@@ -3,7 +3,7 @@ mongoose.Promise = global.Promise;
 const bcrypt = require('bcryptjs');
 const { response } = require("express");
 
-mongoose.connect("mongodb://localhost/data", {
+mongoose.connect("mongodb+srv://root:root@cluster0.wve5v.mongodb.net/data?retryWrites=true&w=majority", {
     useUnifiedTopology: true,
     useNewUrlParser: true
 });
