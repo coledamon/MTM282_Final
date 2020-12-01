@@ -5,6 +5,7 @@ const pug = require("pug");
 const path = require("path");
 const routes = require("./routes/routes");
 const cookieParser = require("cookie-parser");
+const { nextTick } = require("process");
 
 const app = express();
 
@@ -24,13 +25,22 @@ app.use(expressSession({
 	resave: true
 }));
 
+app.use((req, res, next) => {
+	if(!req.session.user && req.url != "/login" && req.url != "/signUp") {
+		res.redirect("/login");
+	}
+	else {
+		next();
+	}
+})
+
 app.get("/", routes.index);
 app.get("/login", routes.login);
 app.post("/login", urlEncodedParser, routes.verifyUser);
 app.get("/signUp", routes.signUp);
 app.post("/signUp", urlEncodedParser, routes.createUser);
 app.get("/profile", routes.profile);
-app.get("/editprofile", routes.profileEdit);
-app.post("/editprofile", urlEncodedParser, routes.editProfile);
+app.get("/editProfile", routes.profileEdit);
+app.post("/editProfile", urlEncodedParser, routes.editProfile);
 
 

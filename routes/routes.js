@@ -108,7 +108,23 @@ exports.profile = (req, res) => {
 exports.profileEdit = (req, res) => {
 	res.render("editProfile", {user: req.session.user});
 }
+let fields = ["username", "email", "age", "answer1", "answer2", "answer3"];
 exports.editProfile = (req, res) => {
+	console.log(req.session.user);
+	User.findById(req.session.user._id, (err, user) => {
+		console.log(user);
+		if(err) return console.error(err);
+		for(value of fields) {
+			if(req.body[value] != "") {
+				user[value] = req.body[value];
+			}
+		}
+		req.session.user = user;
+		user.save((err, user) => {
+			if(err) return console.error(err);
+			res.redirect("/profile");
+		});
+	});
 	
 }
 exports.logout = (req, res) => {
