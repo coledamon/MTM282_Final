@@ -26,7 +26,7 @@ app.use(expressSession({
 }));
 
 app.use((req, res, next) => {
-	if(!req.session.user && req.url != "/login" && req.url != "/signUp") {
+	if(!req.session.user && req.url != "/login" && req.url != "/signup") {
 		res.redirect("/login");
 	}
 	else {
