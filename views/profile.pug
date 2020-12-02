@@ -5,6 +5,14 @@ block content
     p username: #{user.username}
     p email: #{user.email},
     p age: #{user.age},
-    p answer1: #{user.answer1},
-    p answer2: #{user.answer2},
-    p answer3: #{user.answer3}
+    p What is the best pet to have?: #{user.answer1},
+    p PC or Console?: #{user.answer2},
+    p Are you left or right handed?: #{user.answer3}
+    br
+    a(href="/editprofile") Edit Your Profile
+
+block linkSection
+    a(href="/") 
+        div Home&nbsp;
+    a(href="/logout") 
+        div Log Out

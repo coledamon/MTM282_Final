@@ -1,3 +1,4 @@
+
 body {
     
     color: rgb(250, 253, 255);
@@ -8,7 +9,8 @@ body {
         
      background-image: url("images/signupbgg.jpg");
      background-repeat: no-repeat;
-     background-size: cover;
+	 background-size: cover;
+	 margin:0px;
      
      
        
@@ -19,10 +21,16 @@ div {
     text-align:center;
     list-style-type: none;
     font-size: 42px;
-    font-style: oblique;
+	font-style: oblique;
+	border-bottom: 4px solid black;
 }
 div:hover{
     color: rgb(152, 126, 245);
     transition: all 500ms;
 }
-  
+a {
+	text-decoration: none;
+}
+a:visited {
+	color: black;
+}
