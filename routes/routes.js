@@ -102,16 +102,6 @@ exports.profile = (req, res) => {
 }
 exports.profileEdit = (req, res) => {
 	res.render("editProfile", {user: req.session.user});
-	let user = user({
-		username: req.body.username,
-		// password: bcrypt.hashSync(req.body.password, salt),
-		// salt: salt,
-		email: req.body.email,
-		age: req.body.age,
-		answer1: req.body.answer1,
-		answer2: req.body.answer2,
-		answer3: req.body.answer3
-	});
 }
 let fields = ["username", "email", "age", "answer1", "answer2", "answer3"];
 exports.editProfile = (req, res) => {
