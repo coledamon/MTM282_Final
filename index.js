@@ -29,6 +29,9 @@ app.use((req, res, next) => {
 	if(!req.session.user && req.url != "/login" && req.url != "/signup") {
 		res.redirect("/login");
 	}
+	else if(req.session.user && (req.url == "/login" || req.url == "/signup")) {
+		res.redirect("/");
+	}
 	else {
 		next();
 	}
