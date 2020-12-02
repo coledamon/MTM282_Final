@@ -26,7 +26,7 @@ app.use(expressSession({
 }));
 
 app.use((req, res, next) => {
-	if(!req.session.user && req.url != "/login" && req.url != "/signUp") {
+	if(!req.session.user && req.url != "/login" && req.url != "/signup") {
 		res.redirect("/login");
 	}
 	else {
@@ -37,8 +37,8 @@ app.use((req, res, next) => {
 app.get("/", routes.index);
 app.get("/login", routes.login);
 app.post("/login", urlEncodedParser, routes.verifyUser);
-app.get("/signUp", routes.signUp);
-app.post("/signUp", urlEncodedParser, routes.createUser);
+app.get("/signup", routes.signUp);
+app.post("/signup", urlEncodedParser, routes.createUser);
 app.get("/profile", routes.profile);
 app.get("/editProfile", routes.profileEdit);
 app.post("/editProfile", urlEncodedParser, routes.editProfile);
