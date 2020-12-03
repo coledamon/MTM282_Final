@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1 Sign Up:
-     form(id="form" method="POST", action="/signUp")
+     form(id="form" method="POST", action="/signup")
         p Username: 
             input(type="text" name="username")
         p Password: 
@@ -27,7 +27,7 @@ block content
         select(name='answer3')
             option(value='left' ) Left
             option(value='right' ) Right
-        p #{error}
+        p(class="error") #{error}
         p   
             input(type="submit" value="Sign Up")
 

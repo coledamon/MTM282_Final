@@ -89,12 +89,12 @@ exports.createUser = (req, res) => {
 				});
 			} else {
 				req.session.error = "A user with this username already exists"
-				res.redirect("/signUp");
+				res.redirect("/signup");
 			}
 		})
 	} else {
 		req.session.error = "Passwords do not match"
-		res.redirect("/signUp");
+		res.redirect("/signup");
 	}
 }
 exports.profile = (req, res) => {
