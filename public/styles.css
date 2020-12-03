@@ -38,3 +38,22 @@ p {
 .center {
     margin-top:15%;
 }
+.backgroundThing {
+    padding: 10px;
+    width: 25%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: rgb(70,70,70,.7);
+    border-radius: 20px;
+}
+
+@media all and (max-width: 940px) {
+    .backgroundThing {
+        padding: 10px;
+        width: 230px;
+        margin-left:auto;
+        margin-right:auto;
+        background-color: rgb(70,70,70,.7);
+        border-radius: 20px;
+    }
+}
