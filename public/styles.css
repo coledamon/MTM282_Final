@@ -46,6 +46,11 @@ p {
     background-color: rgb(70,70,70,.7);
     border-radius: 20px;
 }
+.error {
+    color: black;
+    font-size: 40px;
+    background-color: red;
+}
 
 @media all and (max-width: 940px) {
     .backgroundThing {
