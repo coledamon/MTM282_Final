@@ -1,6 +1,7 @@
 extends layout
 
 block content
+
     h1 Your Profile:
     p username: #{user.username}
     p email: #{user.email},
@@ -9,8 +10,11 @@ block content
     p PC or Console?: #{user.answer2},
     p Are you left or right handed?: #{user.answer3}
     br
-    a(href="/editprofile") Edit Your Profile
+    
 
+    a(href="/editprofile") Edit Your Profile
+    
+    
 block linkSection
     a(href="/") 
         div Home&nbsp;
