@@ -11,10 +11,7 @@ body {
      background-repeat: no-repeat;
 	 background-size: cover;
 	 margin:0px;
-     
-     
        
-    
     
 }
 div {
@@ -22,16 +19,21 @@ div {
     list-style-type: none;
     font-size: 42px;
 	font-style: oblique;
-	border-bottom: 4px solid black;
+	border-bottom: 4px solid rgb(51, 51, 51);
 }
-div:hover{
-    color: rgb(152, 126, 245);
-    transition: all 500ms;
+        div:hover{
+            color: rgb(152, 126, 245);
+            transition: all 500ms;
 }
-a {
-	text-decoration: none;
+        a {
+            text-decoration: none;
 }
 a:visited {
-	color: black;
+    color: rgb(116, 116, 116);
+
 }
-p{font-size: 21px;}
+p{font-size: 26px;
+    display: inline-block;
+}
+h1{padding:60px
+}
