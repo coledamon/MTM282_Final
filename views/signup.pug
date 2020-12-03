@@ -7,30 +7,30 @@ block content
             input(type="text" name="username")
         p Password: 
             input(type="text" name="password")
-        p Confirm Password:
+        p Confirm Password: 
             input(type="text" name="passwordConf")
-        p Email:
+        p Email: 
             input(type="text" name="email" )
-        p Age:
+        p Age: 
             input(type="text" name="age" )
-        p What is the best pet to have?:
-        select(name='answer1')
-            option(value='dog' ) Dog
-            option(value='cat' ) Cat
-            option(value='other' ) Other
+        p What is the best pet to have?: 
+            select(name='answer1')
+                option(value='dog' ) Dog
+                option(value='cat' ) Cat
+                option(value='other' ) Other
 
-        p PC or Console?:
-        select(name='answer2')
-            option(value='PC' ) PC
-            option(value='Console' ) Console
-        p Are you left or right handed?:
-        select(name='answer3')
-            option(value='left' ) Left
-            option(value='right' ) Right
+        p PC or Console?: 
+            select(name='answer2')
+                option(value='PC' ) PC
+                option(value='Console' ) Console
+        p Are you left or right handed?: 
+            select(name='answer3')
+                option(value='left' ) Left
+                option(value='right' ) Right
         p(class="error") #{error}
         p   
             input(type="submit" value="Sign Up")
 
 block linkSection
     a(href="/login") 
-        div Log In
+        div(class="navLink") Log In

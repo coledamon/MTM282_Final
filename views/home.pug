@@ -2,10 +2,10 @@ extends layout
 
 block content
     if lastTime
-        h1 Last Visit: #{lastTime}
+        h1(class="center") Last Visit: #{lastTime}
     else
-        h1 This is your first time here!
+        h1(class="center") This is your first time here!
 
 block linkSection
     a(href="/profile") 
-        div Profile
+        div(class="navLink") Profile

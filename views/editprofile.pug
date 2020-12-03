@@ -5,27 +5,27 @@ block content
      form(id="form" method="POST", action="/editProfile")
         p Username: 
             input(type="text" name="username" value=user.username)
-        p Email:
+        p Email: 
             input(type="text" name="email" value=user.email)
-        p Age:
+        p Age: 
             input(type="text" name="age" value=user.age)
         //- p Password: 
         //-     input(type="text" name="password")
         //- p Confirm Password:
         //-     input(type="text" name="passwordConf")
-        p What is the best pet to have?:
-        select(name='answer1')
-            option(value='Dog' selected = user.answer1 == 'Dog') Dog
-            option(value='Cat' selected = user.answer1 == 'Cat') Cat
-            option(value='Other' selected = user.answer1 == 'Other') Other
+        p What is the best pet to have?: 
+            select(name='answer1')
+                option(value='Dog' selected = user.answer1 == 'Dog') Dog
+                option(value='Cat' selected = user.answer1 == 'Cat') Cat
+                option(value='Other' selected = user.answer1 == 'Other') Other
 
-        p PC or Console?:
-        select(name='answer2')
-            option(value='PC' selected = user.answer2 == 'PC') PC
-            option(value='Console' selected = user.answer2 == 'Console') Console
-        p Are you left or right handed?:
-        select(name='answer3' value=user.answer3)
-            option(value='Left' selected = user.answer3 == 'Left') Left
-            option(value='Right' selected = user.answer3 == 'Right') Right
+        p PC or Console?: 
+            select(name='answer2')
+                option(value='PC' selected = user.answer2 == 'PC') PC
+                option(value='Console' selected = user.answer2 == 'Console') Console
+        p Are you left or right handed?: 
+            select(name='answer3' value=user.answer3)
+                option(value='Left' selected = user.answer3 == 'Left') Left
+                option(value='Right' selected = user.answer3 == 'Right') Right
         p   
             input(type="submit" value="Save Changes")
