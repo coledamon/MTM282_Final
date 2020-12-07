@@ -46,5 +46,6 @@ app.get("/profile", routes.profile);
 app.get("/editProfile", routes.profileEdit);
 app.post("/editProfile", urlEncodedParser, routes.editProfile);
 app.get("/logout", routes.logout);
+app.get("/api", routes.api);
 
 

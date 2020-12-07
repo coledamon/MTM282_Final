@@ -131,3 +131,40 @@ exports.logout = (req, res) => {
 	res.redirect("/login");
 }
 
+exports.api = (req, res) => {
+	question1Answers = ["Total", "Cat", "Dog", "Other"];
+	question2Answers = ["Total", "Console", "PC"];
+	question3Answers = ["Total", "Left", "Right"];
+	question1Responses = [0, 0, 0, 0];
+	question2Responses = [0, 0, 0];
+	question3Responses = [0, 0, 0];
+	User.find((err, users) => {
+		for(user of users) {
+			question1Responses[question1Answers.indexOf(user.answer1)]++;
+			question2Responses[question2Answers.indexOf(user.answer2)]++;
+			question3Responses[question3Answers.indexOf(user.answer3)]++;
+			question1Responses[0]++;
+			question2Responses[0]++;
+			question3Responses[0]++;
+		}
+		let object = {
+			question1: {
+				total: question1Responses[0],
+				"Cat": question1Responses[1],
+				"Dog": question1Responses[2],
+				"Other": question1Responses[3]
+			},
+			question2: {
+				total: question2Responses[0],
+				"Console": question2Responses[1],
+				"PC":question2Responses[2]
+			},
+			question3: {
+				total: question3Responses[0],
+				"Left": question3Responses[1],
+				"Right": question3Responses[2]
+			}
+		}
+		res.json(object);
+	})
+}
