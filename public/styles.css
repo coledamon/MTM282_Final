@@ -7,15 +7,16 @@ body {
     font-style: italic;
     
         
-     background-image: url("images/signupbgg.jpg");
-     background-repeat: no-repeat;
-	 background-size: cover;
-	 margin:0px;
-       
+    background-image: url("images/signupbgg.jpg");
+    background-repeat: no-repeat;
+	background-size: cover;
+    margin:0px;
+     
+    min-height: 100vh;   
     
 }
 .bottomSpace {
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 .navLink {
     text-align:center;
