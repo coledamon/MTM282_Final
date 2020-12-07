@@ -110,7 +110,7 @@ exports.editProfile = (req, res) => {
 		console.log(user);
 		if(err) return console.error(err);
 		for(value of fields) {
-			if(req.body[value] != "") {
+			if(req.body[value] != "" && req.body[value] != req.session.user[value]) {
 				user[value] = req.body[value];
 				if(value == "username") {
 					res.cookie(`lastTimeHere${user.username}`, req.cookies[`lastTimeHere${req.session.user.username}`], 2147483647);
