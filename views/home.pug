@@ -5,6 +5,13 @@ block content
         h1(class="center") Last Visit: #{lastTime}
     else
         h1(class="center") This is your first time here!
+    div
+        p User Statistics
+    div()
+        canvas(id="question1")
+        canvas(id="question2")
+    div()
+        canvas(id="question3")
     script(src="/script.js")
 
 block linkSection

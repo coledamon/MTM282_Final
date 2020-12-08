@@ -15,6 +15,10 @@ body {
     min-height: 100vh;   
     
 }
+canvas {
+    background-color: gray;
+    margin:5px;
+}
 .bottomSpace {
     padding-bottom: 50px;
 }
@@ -25,7 +29,7 @@ body {
 	font-style: oblique;
 	border-bottom: 4px solid rgb(51, 51, 51);
 }
-div:hover{
+.navLink:hover {
     color: rgb(152, 126, 245);
     transition: all 500ms;
 }
@@ -37,7 +41,8 @@ p {
     font-size: 26px;
 }
 .center {
-    margin-top:15%;
+    margin-top:10%;
+    margin-bottom:5%;
 }
 .backgroundThing {
     padding: 10px;
