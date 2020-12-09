@@ -16,8 +16,9 @@ body {
     
 }
 canvas {
-    background-color: gray;
+    background-color: rgb(70,70,70,.7);
     margin:5px;
+    border-radius: 20px;
 }
 .bottomSpace {
     padding-bottom: 50px;
